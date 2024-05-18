@@ -1,0 +1,17 @@
+~ angel_meeting
+
+Angel: [[Hi|Hello|grace be upon thee]]
+Angel: I am but a test of the true angellic power of this...
+Angel: Game 
+Angel: I believe it's called
+Angel: I have naught to offer, but my simple choices
+- First one
+	Angel: You picked the first one.
+	Angel: [wave amp=25 freq=5]woooow. sOoOoOo OrIgInAl[/wave]
+- Second one
+	Angel: You picked the second one.
+	Angel: you just [shake rate=20 level=10]had[/shake] to be different, didn't you?
+
+set Global.talkin = false
+
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://babp7ks283t7g"
+path="res://.godot/imported/angel - test.dialogue-f86246ddcbcab832e95164ab2302ffb4.tres"
+
+[deps]
+
+source_file="res://Codes/angel - test.dialogue"
+dest_files=["res://.godot/imported/angel - test.dialogue-f86246ddcbcab832e95164ab2302ffb4.tres"]
+
+[params]
+
+defaults=true
