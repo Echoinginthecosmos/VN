@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://uqsu7gqhjofp"]
+
+[ext_resource type="Script" path="res://Codes/Angel NPC.gd" id="1_4aka1"]
+[ext_resource type="Texture2D" uid="uid://b8bn7mm0m0gsc" path="res://arts/Angel.png" id="2_11vwy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bgu05"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c2gsk"]
+radius = 1.0
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4aka1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952041, 0)
+shape = SubResource("CylinderShape3D_bgu05")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09483, 0)
+offset = Vector2(1, 0)
+pixel_size = 0.003
+texture = ExtResource("2_11vwy")
+region_enabled = true
+region_rect = Rect2(708, 708, 610, 708)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.963224, 0.0404582)
+shape = SubResource("CylinderShape3D_c2gsk")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://dfrhjo2crri5l"]
+
+[ext_resource type="Script" path="res://Codes/Seran.gd" id="1_r00dq"]
+[ext_resource type="PackedScene" uid="uid://dk08t4aell5i0" path="res://Entities/HUD.tscn" id="2_1vhly"]
+[ext_resource type="AudioStream" uid="uid://bp30a5okgsu0k" path="res://arts/hup final.wav" id="3_doy6p"]
+[ext_resource type="Texture2D" uid="uid://c1y0hnn5t0p4e" path="res://arts/walk1.png" id="4_suff1"]
+[ext_resource type="Texture2D" uid="uid://b0g2k5qrsuioo" path="res://arts/serans_back-1.png.png" id="5_lwxnf"]
+[ext_resource type="Texture2D" uid="uid://cov8p5xl1lsf2" path="res://arts/walk2.png" id="5_yr8wx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6oy1p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stn0t"]
+transparency = 1
+albedo_texture = ExtResource("4_suff1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cqyee"]
+size = Vector2(0.8, 1.7)
+
+[sub_resource type="Animation" id="Animation_wn8mj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_stn0t")]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0o7jh"]
+transparency = 1
+albedo_texture = ExtResource("5_lwxnf")
+
+[sub_resource type="Animation" id="Animation_7h40s"]
+resource_name = "Stand"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_0o7jh")]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32ygg"]
+transparency = 1
+albedo_texture = ExtResource("5_yr8wx")
+
+[sub_resource type="Animation" id="Animation_gdfsp"]
+resource_name = "new_animation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t"), SubResource("StandardMaterial3D_32ygg"), SubResource("StandardMaterial3D_stn0t")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfg6f"]
+_data = {
+"RESET": SubResource("Animation_wn8mj"),
+"Stand": SubResource("Animation_7h40s"),
+"Walk": SubResource("Animation_gdfsp")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f2ch"]
+size = Vector3(0.798546, 0.27838, 0.815764)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 15
+script = ExtResource("1_r00dq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.249043, 0)
+shape = SubResource("CapsuleShape3D_6oy1p")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.956488, -0.291771, 0, 0.291771, 0.956488, 0, 0.249153, -0.0261873)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 0.984959, 0.172789, 0, -0.172789, 0.984959, 0, 0.171, 0)
+fov = 89.0518
+
+[node name="Control" parent="head/Camera3D" instance=ExtResource("2_1vhly")]
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 0.249467, -0.968383, 0, 0.968383, 0.249467, 0, 0.15632, -0.0476844)
+collision_mask = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_doy6p")
+volume_db = -16.726
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, -0.379973, 0)
+material_override = SubResource("StandardMaterial3D_stn0t")
+mesh = SubResource("PlaneMesh_cqyee")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_jfg6f")
+}
+
+[node name="sprint_time" type="Timer" parent="."]
+wait_time = 19.0
+one_shot = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.299973, -0.350297)
+shape = SubResource("BoxShape3D_0f2ch")
+
+[connection signal="timeout" from="sprint_time" to="." method="_on_sprint_time_timeout"]
