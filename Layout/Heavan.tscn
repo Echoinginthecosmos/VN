@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://8umly3j1h5um"]
+
+[ext_resource type="Texture2D" uid="uid://4avm61e1ukd5" path="res://arts/Heavan.png" id="1_h05tq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcaga"]
+size = Vector3(3.13623, 5.61141, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hhppo"]
+size = Vector3(3.59351, 2.6316, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8245, 0)
+pixel_size = 0.015
+texture = ExtResource("1_h05tq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20501, 1.92164, -0.332428)
+shape = SubResource("BoxShape3D_lcaga")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29354, 1.92164, -0.332428)
+shape = SubResource("BoxShape3D_lcaga")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.68214, -0.332428)
+shape = SubResource("BoxShape3D_hhppo")
